@@ -1,1 +1,1 @@
-# Problem-solving-leatcode
+# Problem-solving-leetcode
