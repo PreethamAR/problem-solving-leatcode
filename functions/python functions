@@ -1,0 +1,104 @@
+#1 Function getSum to get Sum of numbers
+
+def getSum(number1, number2):
+    return number1+number2
+
+def invoke_getSum():
+    sum = getSum(10,20)
+    print("Sum of two number is ", sum)
+
+    sum2 = getSum(1.2,1.2)
+    print("Sum of two number is ", sum2)
+
+    sum3 = getSum("Hello "," World")
+    print("Sum of two number is ", sum3)
+
+
+def getIntegerSum(number1: int, number2: int) ->int:
+    ans = number1 + number2
+    return ans
+
+def invoke_getIntegerSum():
+    sum1 = getIntegerSum(1.2, 1.5)
+    print("Sum of two number is ", sum1)
+
+    sum2 = getIntegerSum(100, 1.5)
+    print("Sum of two number is ", sum2)
+
+
+#2 Function swapNumbers to Swap two variable values
+
+def swap(item1, item2):
+    temp = item1
+    item1 = item2
+    item2 = temp
+    return item1, item2
+
+def swapSimple(item1, item2):    
+    return item2, item1
+
+
+def invoke_swap():
+    number1 = 10
+    number2 = 20
+
+    print(f"Before swapping: Value of number1 = {number1} and number2 = {number2}")
+    # number1, number2 = swap(number1, number2)
+
+    number1, number2 = swapSimple(number1, number2)
+    print(f"After swaping: Value of number1 = {number1} and number2 = {number2}")
+
+#3 Function isEven to return true if number is even otherwise false
+
+#def isEven(number: int)-> bool: 
+def isEven(number):
+    if (number%2 == 0):
+        return True
+    else:
+        return False
+ 
+def invoke_isEven():    
+    input = 100
+    result = isEven(input)
+
+    if result:
+        print(f"{input} is even")
+    else:
+        print(f"{input} is odd")
+
+
+#4Function isNumber to return true if it is an getIntegerSum
+
+def isNumbers(number):
+    isInteger = True    
+
+    for eachCharacter in number:
+        if (eachCharacter >= '0' and eachCharacter <= '9'):
+            continue
+        else:
+            isInteger = False
+            break
+    
+    return isInteger
+        
+def isNumbers_V2(number):
+    # Check if any of the character falls outside the range 0 to 9, if yes return false
+    for eachCharacter in number:
+        if (eachCharacter < '0' or eachCharacter > '9'):
+            return False
+    
+    # All the characters are between 0 to 9 hence return True
+    return True
+
+
+def invoke_IsNumbers():
+    #result = isNumbers("1234")
+    #result = isNumbers("a12a34")
+
+    result = isNumbers_V2("a12a34")
+
+    if result:
+        print("Yes it is an integer")
+    else:
+        print("No it is not an an integer")
+    
