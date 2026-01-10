@@ -1,0 +1,89 @@
+#15 - Function get second largest element in an integer array  getSecondLargest
+
+def getSecondLargestNumber(numbers)->int:
+    largestMax = numbers[0]
+    secondLargest = numbers[0]
+
+    for index in range(1, len(numbers), 1):
+        # If new number we scanned is greater than current largest
+        # you have to update both variables
+
+        if numbers[index] > largestMax:
+            secondLargest = largestMax
+            largestMax = numbers[index]
+        elif numbers[index] > secondLargest and numbers[index] != secondLargest:
+            secondLargest = numbers[index]    
+        elif largestMax == secondLargest and numbers[index] < largestMax:
+            secondLargest = numbers[index]    
+    
+    return secondLargest
+
+def getSecondLargestNumber_v2(numbers)->int:
+    largestMax = float('-inf')
+    secondLargest = float('-inf')
+
+    for index in range(0, len(numbers), 1):
+        # If new number we scanned is greater than current largest
+        # you have to update both variables
+
+        if numbers[index] > largestMax:
+            secondLargest = largestMax
+            largestMax = numbers[index]
+        elif numbers[index] > secondLargest:
+            secondLargest = numbers[index]    
+        
+    return secondLargest
+
+def invoke_getSecondLargestNumber():
+    input1 = [-1,-2,-4,-5]
+    #input1 = [5,4,3,2,1]
+    #input1 = [8,1,2,6,10]
+    result = getSecondLargestNumber_v2(input1)
+    print(f"Second largest number is {result}")
+
+# 16 - Function to print unique elements in an integer array   printUniqueElements
+# Ignore those numbers completely which have duplicates 
+def printUniqueElements(numbers):
+
+    for read_index in range(0, len(numbers), 1):
+        isDuplicate = False
+
+        for compare_index in range(0, len(numbers),1):
+            if read_index == compare_index:
+                continue
+
+            if numbers[read_index] == numbers[compare_index]:
+                isDuplicate = True
+                break
+        
+        if(isDuplicate == False):
+            # This is unique element, hence print it
+            print(numbers[read_index])
+
+def invoke_printUniqueElements():
+    input1 = [1,2,3,2,4,1]
+    #input1 = [1,2,3,4,5]
+    printUniqueElements(input1)
+
+
+# 17 - Function to print intersection or common elements of two integer arrays  getCommonElements
+
+def printCommonElements(input1, input2):
+
+    for input1_index in range(0, len(input1), 1):
+        isFound = False
+        for input2_index in range(0, len(input2), 1):
+            if input1[input1_index] == input2[input2_index]:
+                isFound = True
+                break
+        
+        if isFound:
+            print(input1[input1_index])
+
+
+def invoke_printCommonElements():
+    input1 = [1,2,3,4,7,9,8]
+    input2 = [9,6,7,8]
+
+    printCommonElements(input1, input2)
+
