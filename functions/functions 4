@@ -1,0 +1,102 @@
+# 11 -> Function to find given string is Palindrome, function isPalidrome returns true if string is palindrome
+
+def isPalindrome(string: str)->bool:
+    leftIndex = 0
+    rightIndex = len(string) - 1
+    result = True
+
+    while (leftIndex < rightIndex):
+        if string[leftIndex] != string[rightIndex]:
+            result = False
+            break
+
+        leftIndex+=1
+        rightIndex-=1
+    
+    return result
+
+def invoke_isPalindrome():   
+    input1 = "mam"
+    input2 = "malayalam"
+    input3 = "hello"
+    input4 = "abba"
+    input5 = "abcedcba"
+
+    result = isPalindrome(input5)
+
+    if result:
+        print("String is palindrome")
+    else:
+        print("String is not Palindrome")
+
+
+# 12 -> Function to print max and min value from an integer array ,  printMaxMin
+
+#def getMaxMin(numbers: list)-> tuple[int,int]:
+
+def getMaxMin(numbers:list):
+    max = numbers[0]
+    min = numbers[0]
+    
+    for index in range(1, len(numbers), 1):
+        if numbers[index] > max:
+            max = numbers[index]
+        
+        if numbers[index] < min:
+            min = numbers[index]
+
+    return max,min
+
+def invoke_maxmin():
+    input1 = [1,2,100,4,5,-1]
+    resultMax, resultMin = getMaxMin(input1)
+    print(f"Maximum value is {resultMax} and minium value is {resultMin}")
+
+
+#13 -> Function to search in an sorted integer array
+# aka binary search 
+
+def search(numbers, key)->bool:
+    leftIndex = 0
+    rightIndex = len(numbers) -1    
+    found = False
+
+    while(leftIndex <= rightIndex):
+        middleIndex = int(leftIndex + (rightIndex-leftIndex)/2) # Typecasting
+
+        if(numbers[middleIndex] == key):
+            found = True
+            break
+
+        if (numbers[middleIndex] > key):
+            # you must search on the left side of the array
+            rightIndex = middleIndex - 1
+        else:
+            # you must search onthe right side of the array
+            leftIndex = middleIndex + 1
+        
+    return found
+
+def invoke_search():
+    input1 = [1,2,3,4,5,6]
+    key = 6
+
+    result = search(input1, key)
+
+    if result:
+        print("Number is found")
+    else:
+        print("Number is not found")
+
+# 14 - Function to merge two arrays and return combined output in first array
+
+def mergeList(list1: list, list2:list):
+    for item in list2:
+        list1.append(item)
+    
+def invoke_mergeList():
+    list1 = [1,2,3]
+    list2 = [4,5]
+    mergeList(list1, list2)
+    print(list1)
+#completed
